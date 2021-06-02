@@ -1,0 +1,5 @@
+
+#Spring配置
+Spring:
+  application:
+    name: springcloud-config-dept-8001

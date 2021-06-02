@@ -1,0 +1,28 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: springcloud-zuul
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/, http://localhost:7002/eureka/, http://localhost:7003/eureka/
+  instance:
+    instance-id: zuul9527.com
+    prefer-ip-address: true
+
+
+
+info:
+  app.name: ccq-springcloud
+  company.name: blog.ccqStudy.com
+
+zuul:
+  routes:
+    mydept.serviceId: springcloud-provider-dept
+    mydept.path: /mydept/**
+#  ignored-services: springcloud-provider-dept #不能再使用这个路径访问了  "*" 隐藏全部的
+  ignored-services: "*" #不能再使用这个路径访问了  "*" 隐藏全部的
+  prefix: /ccq #设置公共的前缀  http://localhost:9527/ccq/mydept/dept/get/1
